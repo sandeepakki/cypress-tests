@@ -14,10 +14,22 @@ import LoginPage from '../pageObjects/LoginPage'
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 const loginPage = new LoginPage
-Cypress.Commands.add('employerLogin', (validUsername, validPassword) => {
-    loginPage.getUsername().type(validUsername)
-    loginPage.getPassword().type(validPassword)
+Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
+    loginPage.getUsername().type(employerUser)
+    loginPage.getPassword().type(employerPassword)
   })
+   Cypress.Commands.add('employeeLogin', (employeeUser, employeePassword) => {
+    loginPage.getUsername().type(employeeUser)
+    loginPage.getPassword().type(employeePassword)
+  }) 
+  Cypress.Commands.add('loginAsEmployer', (employeeUser, employeePassword) => {
+    loginPage.getUsername().type(employeeUser)
+    loginPage.getPassword().type(employeePassword)
+  })
+  Cypress.Commands.add('unauthLogin', (unauthUser, unauthPassword) => {
+    loginPage.getUsername().type(unauthUser)
+    loginPage.getPassword().type(unauthPassword)
+  }) 
 //
 //
 // -- This is a child command --

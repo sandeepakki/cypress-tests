@@ -9,6 +9,10 @@ class LoginPage
     {
         return cy.get('.chakra-button.css-15cvtmh')
     }
+    getEmployeeCTA()
+    {
+        return cy.get('a.chakra-button.css-15cvtmh')
+    }
     getUsername()
     {
         return cy.get("input[name='email']")
@@ -21,7 +25,10 @@ class LoginPage
     {
        return cy.get('button.chakra-button.css-myw8ga')
     }
-
+    getUserNotfoundText()
+    {
+        return cy.get('div.chakra-alert__title.css-fj8teq')
+    }
 
 }
 export default LoginPage;

@@ -7,7 +7,7 @@ class HomePage
     }
     getMenuDropdown()
     {
-        return cy.get('#menu-button-9')
+        return cy.get('button.chakra-menu__menu-button.css-1xc86lj')
     }
     getProfileCTA()
     {
@@ -23,7 +23,7 @@ class HomePage
     }
    getLogoutCTA()
    {
-    return cy.get('#menu-list-9-menuitem-13')
+    return cy.get('button.chakra-menu__menuitem.css-27cqzr')
    }
 
 }

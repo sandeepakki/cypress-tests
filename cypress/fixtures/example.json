@@ -1,6 +1,10 @@
 {
-  "validUsername": "sandeep+15june@tartanhq.com",
-  "validPassword": "San@300494",
+  "employerUser": "sandeep+15june@tartanhq.com",
+  "employerPassword": "San@300494",
+  "employeeUser" : "sandeep+warren@tartanhq.com",
+  "employeePassword":"San@3004",
+  "unauthUser": "sandeep+10aug@tartanhq.com",
+  "unauthPassword": "SaN@3004",
   "invalidUsername":"sandeep+10aug@tartanhq.com",
   "invalidPassword":"San@3004"
 }
