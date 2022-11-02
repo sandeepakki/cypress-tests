@@ -33,7 +33,7 @@ describe('batik test suite', function() {
     homePage.getHomeText().should('have.text','Home')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()
-
+ /// jdskm//
     })
 
 
