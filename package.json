@@ -1,0 +1,19 @@
+{
+  "name": "batikcyscripts",
+  "version": "1.0.0",
+  "description": "All Batik Project cypress automation scripts",
+  "main": "index.js",
+  "scripts": {
+    "cyRunner": ".//node_modules//.bin//cypress open",
+    "test": ".//node_modules//.bin/cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/tartanfintech/batikcyscripts/src/master/"
+  },
+  "author": "Sandeep Kumar Akki",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.11.0"
+  }
+}
