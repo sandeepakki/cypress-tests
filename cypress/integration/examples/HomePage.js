@@ -44,6 +44,6 @@ describe('batik test suite', function() {
       cy.go('back')
       homePage.getAddBtn().click()
       cy.go('back')
-      homePage.getReadArticleLink().click()
+ 
       })
     })
