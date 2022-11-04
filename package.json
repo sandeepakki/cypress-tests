@@ -17,6 +17,7 @@
   "author": "Sandeep Kumar Akki",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^10.11.0"
+    "cypress": "^10.11.0",
+    "cypress-file-upload": "^5.0.8"
   }
 }

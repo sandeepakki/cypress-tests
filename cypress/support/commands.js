@@ -13,6 +13,7 @@ import LoginPage from '../pageObjects/LoginPage'
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+import 'cypress-file-upload';
 const loginPage = new LoginPage
 Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
     loginPage.getUsername().type(employerUser)
