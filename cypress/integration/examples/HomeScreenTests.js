@@ -1,8 +1,17 @@
+//inheriting 
 import HomePage from '../../pageObjects/HomePage'
 import LoginPage from '../../pageObjects/LoginPage'
 import EmployeeDirectory from '../../pageObjects/EmployeeDirectory'
 import GiftCardsPage from '../../pageObjects/GiftCards'
 import BenefitsPage from '../../pageObjects/BenefitsPage'
+
+//constructors
+        const loginPage = new LoginPage()
+        const homePage = new HomePage()
+        const employeeDir =  new EmployeeDirectory()
+        const giftcards = new GiftCardsPage()
+        const benefitsPage = new BenefitsPage()
+//actual code
 describe('batik test suite', function() {
 
     beforeEach(function(){
@@ -12,11 +21,6 @@ describe('batik test suite', function() {
       })
   })
       it('performs actions on home page links', function()  { 
-        const loginPage = new LoginPage()
-        const homePage = new HomePage()
-        const employeeDir =  new EmployeeDirectory()
-        const giftcards = new GiftCardsPage()
-        const benefitsPage = new BenefitsPage()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getEmployerCTA().click()

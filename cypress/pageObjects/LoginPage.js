@@ -29,6 +29,13 @@ class LoginPage
     {
         return cy.get('div.chakra-alert__title.css-fj8teq')
     }
-
+    getDontRememberPasswordText()
+    {
+        return cy.get('div.css-1rp10yp')
+    }
+    getClickHereLink()
+    {
+        return cy.get('p.chakra-text.css-hattwm')
+    }
 }
 export default LoginPage;
