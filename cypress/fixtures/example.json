@@ -6,5 +6,9 @@
   "unauthUser": "sandeep+10aug@tartanhq.com",
   "unauthPassword": "SaN@3004",
   "invalidUsername":"sandeep+10aug@tartanhq.com",
-  "invalidPassword":"San@3004"
+  "invalidPassword":"San@3004",
+  "correctUser": "user1@mailinator.com",
+  "incorrectPassword":"admin123",
+  "incorrectUser":"us@mailinator.com",
+  "correctPassword":"San@3004"
 }

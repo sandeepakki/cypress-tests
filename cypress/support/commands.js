@@ -31,6 +31,10 @@ Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
     loginPage.getUsername().type(unauthUser)
     loginPage.getPassword().type(unauthPassword)
   }) 
+  Cypress.Commands.add('IncorrectUnPwd', (correctUser, incorrectPassword) => {
+    loginPage.getUsername().type(correctUser)
+    loginPage.getPassword().type(incorrectPassword)
+  }) 
 //
 //
 // -- This is a child command --

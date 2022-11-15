@@ -7,11 +7,11 @@ class LoginPage
     }
     getEmployerCTA()
     {
-        return cy.get('.chakra-button.css-15cvtmh')
+        return cy.get('a.chakra-button.css-15cvtmh')
     }
     getEmployeeCTA()
     {
-        return cy.get('a.chakra-button.css-15cvtmh')
+        return cy.get('.css-15cvtmh')
     }
     getUsername()
     {

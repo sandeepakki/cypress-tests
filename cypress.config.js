@@ -10,7 +10,7 @@ module.exports = defineConfig({
     retries:{
       runMode: 1
     },
-
+    
   e2e: {
     baseUrl: 'https://bs.tartanhq.com/',
     setupNodeEvents(on, config) {

@@ -77,5 +77,9 @@ class HomePage
    {
     return cy.get('.css-1w9x2f9 > :nth-child(1) > .chakra-text')
    }
+   getIncorrectUser()
+   {
+    return cy.get('.chakra-alert__title')
+   }
 }
 export default HomePage;

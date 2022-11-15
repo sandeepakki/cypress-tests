@@ -22,6 +22,7 @@ describe('batik test suite', function() {
       loginPage.getEmployerCTA().click()
       cy.employerLogin(this.data.employerUser,this.data.employerPassword)
       loginPage.getLoginCTA().click()
+      cy.url().should('include','/employer/dashboard')
       homePage.getHomeText().should('have.text','Home') 
       homePage.getstartOnboardingText().should('have.text','Onboard Employees')
       homePage.getstartOnboardingLink().click()
