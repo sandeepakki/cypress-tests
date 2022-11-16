@@ -17,6 +17,7 @@ describe('batik test suite', function() {
         const employeeDir =  new EmployeeDirectory()
         const giftcards = new GiftCardsPage()
         const benefitsPage = new BenefitsPage()
+        cy.clearCookies()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getEmployerCTA().click()

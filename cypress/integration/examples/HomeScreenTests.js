@@ -21,6 +21,7 @@ describe('batik test suite', function() {
       })
   })
       it('performs actions on home page links', function()  { 
+        cy.clearCookies()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getEmployerCTA().click()

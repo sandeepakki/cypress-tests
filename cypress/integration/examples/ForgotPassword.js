@@ -23,6 +23,7 @@ describe('batik test suite', function() {
       })
   })
       it('Resets Forgot Password', function()  { 
+        cy.clearCookies()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getDontRememberPasswordText().then(function(element){
@@ -35,23 +36,12 @@ describe('batik test suite', function() {
             const actualText = element.text()
             expect(actualText.includes("Enter your work email address")).to.be.true
            })
-        fpPage.getEmailField().type("xxx@tartanhq.com")
+        fpPage.getEmailField().type("xxx@tartanhq.com").blur() 
         fpPage.getSubmitbutton().click()
         fpPage.getEmailFieldFeedback().should('have.text','Email is not Registered with us')
         fpPage.getEmailField().clear()
-        fpPage.getEmailField().type("sandeep+10june@tartanhq.com")
+        fpPage.getEmailField().type("sandeep+10june@tartanhq.com").blur() 
         fpPage.getSubmitbutton().click()
-       try{
-        fpPage.getAttemptLimitExceededText().then(function(element){
-            const actualText = element.text()
-        })
-            if(expect(actualText.includes("Attempt limit exceeded"))==true){
-                cy.pause()
-            }
-        
-       }catch(error){
-        console.log(error)
-       }
         fpPage.getPinbox0().type("1")
         fpPage.getPinbox1().type("1")
         fpPage.getPinbox2().type("2")

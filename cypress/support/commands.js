@@ -35,6 +35,7 @@ Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
     loginPage.getUsername().type(correctUser)
     loginPage.getPassword().type(incorrectPassword)
   }) 
+ 
 //
 //
 // -- This is a child command --
