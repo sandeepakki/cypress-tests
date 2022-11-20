@@ -1,6 +1,5 @@
 class LoginPage
 {
-
     getWelcomeText()
     {
         return cy.get('.chakra-text.css-1i845vn')
