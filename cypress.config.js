@@ -25,19 +25,21 @@ module.exports = defineConfig({
     pageLoadTimeout: 60000,
     requestTimeout: 60000,
     experimentalWebKitSupport: true,
+    experimentalModifyObstructiveThirdPartyCode: true,
     retries:{
       runMode: 1
     },
     env:{
       db: {
-        host: "13.126.5.184",
-        user: "readonly",
-        password: "TartanPassword",
-        database: "Batik-Stage"
+        host: "localhost",
+        user: "admin",
+        password: "tartanpassword",
+        database: "test"
       }},
   e2e: {
     baseUrl: 'https://bs.tartanhq.com/',
     apiURL: 'https://api-stg.tartanhq.com/marvel/api/v1',
+  //  experimentalSessionAndOrigin: true,
     setupNodeEvents(on, config) {
       on("task", {
         queryDb: query => {

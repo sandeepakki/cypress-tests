@@ -35,7 +35,24 @@ Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
     loginPage.getUsername().type(correctUser)
     loginPage.getPassword().type(incorrectPassword)
   }) 
- 
+  Cypress.Commands.add('LoginAPI', (email, password,poolID) => {
+    cy.session([email, password,poolID], () => {
+      cy.request({
+        method: 'POST',
+        url: 'https://api-stg.tartanhq.com/marvel/api/v1/employer/login',
+        body: {email:"sandeep+15june@tartanhq.com",password:"San@300494",poolId:"ap-south-1_xH9pAN2Zu"}
+      }).then((resp) => {
+        expect(resp.status).to.eq(200)
+        window.localStorage.setItem('batik-user-stg',{"state":{"session":resp.body.accessToken,"user":resp.body.user},"version":0})
+      })
+    },
+    {
+      validate() {
+        cy.request('https://api-stg.tartanhq.com/marvel/api/v1/employer/check-gift-cards').its('status').should('eq', 200)
+      },
+  }
+)
+})
 //
 //
 // -- This is a child command --

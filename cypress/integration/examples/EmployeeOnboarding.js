@@ -50,7 +50,7 @@ describe('batik test suite', function() {
         expect(actualText.includes("Uploaded CSV file is empty")).to.be.true
       })
       cy.reload()
-      cy.wait(2000)
+      cy.wait(1000)
       employeeDir.getAddEmployeeCTA().click()
       cy.wait(2000)
       cy .fixture('DataSet.csv').then(fileContent => {
