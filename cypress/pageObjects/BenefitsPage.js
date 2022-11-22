@@ -18,9 +18,20 @@ getCategories()
 }
 getBenefitsLink()
 {
-    return cy.get('a.css-1x1jbbw')
+    return cy.get('[href="/employer/benefits/corporate"]')
 }
-
+selectBenefit()
+{
+    return cy.get('div.css-vrey03 > div.css-j7qwjs')
 }
-
+activateBenefitCTA()
+{
+    return cy.get('button.chakra-button.css-o0pqos')
+}
+getSuccessToast()
+{
+    return cy.get('.chakra-toast > .chakra-toast__inner > .css-1lik65u > .css-j7qwjs > .css-1przbv1')
+           
+}
+}
 export default BenefitsPage

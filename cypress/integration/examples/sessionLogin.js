@@ -1,9 +1,9 @@
-describe('Login with jwt session token',()=>
+describe('Login with jwt session token',function()
 {
-it('is logged in thru local storage',()=>
+it('is logged in thru local storage',function()
 {
-    cy.LoginAPI()
-    cy.visit('/')
-    cy.visit("https://bs.tartanhq.com/employer/dashboard")
+   cy.LoginAPI()
+   cy.visit('/')
+   cy.url().should('include','employer/dashboard')
 })
 })
