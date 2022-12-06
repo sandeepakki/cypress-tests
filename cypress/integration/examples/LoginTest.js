@@ -68,4 +68,12 @@ describe('batik test suite', function() {
       expect(actualText.includes("Incorrect Username / Password")).to.be.true
     })
   })
+  it('if deactivated employee tries to login',function(){
+    cy.IncorrectUnPwd(this.data.deactivatedUser,this.data.correctPassword)
+    loginPage.getLoginCTA().click()
+    homePage.getIncorrectUser().then(function(element){
+      const actualText = element.text()
+      expect(actualText.includes("Batik user account")).to.be.true
+    })
+  })
   })
