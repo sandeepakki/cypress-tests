@@ -14,16 +14,13 @@ describe('batik test suite', function() {
     //runs before all tests in the block
     cy.fixture('example').then(function(data){
     this.data=data
+    cy.LoginAPI()
+   cy.visit('/')
     })
 })
     it('Activate employee benefits', function()  { 
-      cy.clearCookies()
-    cy.visit('/')
-    loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
-    loginPage.getEmployerCTA().click()
-    cy.employerLogin(this.data.employerUser,this.data.employerPassword)
-    loginPage.getLoginCTA().click()
-    cy.url().should('include','/employer/dashboard')
+    
+      cy.url().should('include','employer/dashboard')
     homePage.getHomeText().should('have.text','Home')
     benefitsPage.getBenefitsLink().click()
     benefitsPage.getEmployeeBenefitsText().click()
@@ -46,22 +43,21 @@ describe('batik test suite', function() {
     }
 })
 benefitsPage.activateBenefitCTA().click()
-cy.wait(3000)
+cy.wait(1000)
 benefitsPage.getSuccessToast().should('have.text','Successfully activated benefit')
 activatedPage.getActivatedBenefitsLink().click()
-cy.wait(5000)
+cy.wait(1000)
 activatedPage.getCategorieFilter().each(($el, index, $list) => {
   const catText = $el.text()
   if(catText.includes('Healthcare Plan')){
       cy.wrap($el).click()
   }
 })
-activatedPage.getSearchInput().type('Lorem')
-activatedPage.getSearchedBenefit().should('have.text',"Lorem ipsum")
+activatedPage.getSearchInput().type('Lorem', {force: true})
+activatedPage.getSearchedBenefit().should('have.text',"Lorem Ipsum is a dummy text..!")
 activatedPage.getDeactivatedCTA().click()
 activatedPage.getCancelCTA().click()
 activatedPage.getDeactivatedCTA().click()
-activatedPage.getPopText().should('include','Do you want to deactivate')
 activatedPage.getConfirmCTA().click()
 benefitsPage.getSuccessToast().should('have.text','Plan Deactivated Successfully')
     // homePage.getMenuDropdown().click()

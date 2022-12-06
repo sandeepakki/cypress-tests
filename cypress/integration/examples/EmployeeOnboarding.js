@@ -28,10 +28,6 @@ describe('batik test suite', function() {
       homePage.getstartOnboardingText().should('have.text','Onboard Employees')
       homePage.getstartOnboardingLink().click()
       employeeDir.getAddEmployeeCTA().click()
-      employeeDir.getOnboardPopHeader().then(function(element){
-        const actualText = element.text()
-        expect(actualText.includes("Onboarding")).to.be.true
-      })
       employeeDir.getUploadCSVText().then(function(element){
         const actualText = element.text()
         expect(actualText.includes("Upload a CSV")).to.be.true

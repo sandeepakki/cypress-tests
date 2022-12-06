@@ -10,7 +10,7 @@ class activatedBenefits
     }
     getSearchedBenefit()
         {
-            return cy.get("input[placeholder='Search...']")
+            return cy.get('.css-1y41fdh')
         }
     getDeactivatedCTA()
     {
