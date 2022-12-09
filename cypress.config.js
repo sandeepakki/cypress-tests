@@ -39,7 +39,7 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://bs.tartanhq.com/',
     apiURL: 'https://api-stg.tartanhq.com/marvel/api/v1',
-    experimentalSessionAndOrigin: true,
+   
     experimentalRunAllSpecs:true,
     setupNodeEvents(on, config) {
       on("task", {

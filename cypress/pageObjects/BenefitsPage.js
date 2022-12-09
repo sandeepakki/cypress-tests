@@ -89,5 +89,25 @@ getPaytmclose()
 {
     return cy.get('div.ptm-header-top.ptm-pos-r.xs-header-top > span')
 }
+getQuantityInput()
+{
+    return cy.get('.chakra-numberinput__field.css-64fodi')
+}
+getAmount()
+{
+    return cy.get(':nth-child(7) > .css-3u2sdd')
+}
+getDiscount()
+{
+    return cy.get('.css-1c6sbgk')
+}
+getTaxes()
+{
+    return cy.get(':nth-child(9) > .css-3u2sdd')
+}
+getTotalPayable()
+{
+    return cy.get('.css-164oxdm')
+}
 }
 export default BenefitsPage
