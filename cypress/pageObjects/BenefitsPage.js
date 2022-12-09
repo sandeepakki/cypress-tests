@@ -37,7 +37,7 @@ getViewAll(){
      return cy.get('.css-1ac8m8p')
 }
 getBuyNowCTA(){
-   return cy.get('.css-8atqhb > .chakra-button')
+   return cy.get('.css-8atqhb > .chakra-button') 
 }
 getAddEmployeesCTA()
 {
@@ -105,9 +105,41 @@ getTaxes()
 {
     return cy.get(':nth-child(9) > .css-3u2sdd')
 }
+getTaxesWithoutAnyOffer()
+{
+    return cy.get(':nth-child(8) > .css-3u2sdd')
+}
 getTotalPayable()
 {
     return cy.get('.css-164oxdm')
+}
+getHealthCare1()
+{
+    return cy.get('h2').contains('Healthcare Test Scenario 1')
+}
+getHealthCare6()
+{
+    return cy.get('h2').contains('Healthcare Test scenario 6')
+}
+getHealthCare2()
+{
+    return cy.get('h2').contains('Healthcare Test Scenario2')
+}
+getHealthCare3()
+{
+    return cy.get('h2').contains('Healthcare Test Scenario 3')
+}
+getHealthCare4()
+{
+    return cy.get('h2').contains('Healthcare Test Scenario 4')
+}
+getHealthCare5()
+{
+    return cy.get('h2').contains('Healthcare test scenario 5')
+}
+getBuyNow()
+{
+    return cy.get('.chakra-button.css-1izu0at')
 }
 }
 export default BenefitsPage

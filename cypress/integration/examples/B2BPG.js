@@ -107,7 +107,7 @@ describe('batik test suite', function () {
         const payableText = amtPayable.text()
         let payRes = payableText.split("₹")
         let amountPayable = payRes[1]
-        expect(amountPayable).to.equal(total)
+        expect(Number(amountPayable)).to.equal(Number(total))
       })
   })
 })  
