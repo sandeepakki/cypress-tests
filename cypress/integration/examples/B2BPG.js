@@ -55,9 +55,6 @@ describe('batik test suite', function () {
     benefitsPage.getDoneCTA().click()
     benefitsPage.getContinuePayCTA().click()
     benefitsPage.getpaytm().click()
-    benefitsPage.getUsepaymentCTA().click()
-    cy.wait(2000)
-    benefitsPage.getPaytmclose().click()
 
   })
 

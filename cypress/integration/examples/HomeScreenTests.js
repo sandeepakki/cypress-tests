@@ -2,14 +2,12 @@
 import HomePage from '../../pageObjects/HomePage'
 import LoginPage from '../../pageObjects/LoginPage'
 import EmployeeDirectory from '../../pageObjects/EmployeeDirectory'
-import GiftCardsPage from '../../pageObjects/GiftCards'
 import BenefitsPage from '../../pageObjects/BenefitsPage'
 
 //constructors
         const loginPage = new LoginPage()
         const homePage = new HomePage()
         const employeeDir =  new EmployeeDirectory()
-        const giftcards = new GiftCardsPage()
         const benefitsPage = new BenefitsPage()
 //actual code
 describe('batik test suite', function() {
@@ -36,7 +34,7 @@ describe('batik test suite', function() {
       employeeDir.getEmployeeDirectoryPage().should('have.text','Employee Directory')
       cy.go('back')
       homePage.getBuySharelink().click()
-      giftcards.getGiftPageText().should('have.text',' Gift Cards')
+      benefitsPage.getGiftPageText().should('have.text',' Gift Cards')
       cy.go('back')
       homePage.getBuyNowLink().click()
       benefitsPage.getCorporateBenefitsText().should('have.text','Corporate Benefits')

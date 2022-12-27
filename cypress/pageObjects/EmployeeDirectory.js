@@ -35,7 +35,7 @@ class EmployeeDirectory
     }
     getOnboardingReport()
     {
-        return cy.get('#chakra-modal--header-11')
+        return cy.get('#chakra-modal--header-12')
     }
     getFileUploadInProgress()
     {

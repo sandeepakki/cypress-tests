@@ -2,7 +2,7 @@ class BenefitsPage
 {
 getBenefitsText(){
 
- return cy.get('.css-z2qe91 > .chakra-text.css-0')
+ return cy.get('div.css-1cp9nse > .chakra-text.css-0')
 }
 getCorporateBenefitsText()
 {
@@ -140,6 +140,14 @@ getHealthCare5()
 getBuyNow()
 {
     return cy.get('.chakra-button.css-1izu0at')
+}
+getTaxViewAll()
+{
+    return cy.get(':nth-child(1) > .css-1chji2x > .css-1ac8m8p')
+}
+getGiftPageText()
+{
+    return cy.get('p.chakra-text.css-t5co4c')
 }
 }
 export default BenefitsPage

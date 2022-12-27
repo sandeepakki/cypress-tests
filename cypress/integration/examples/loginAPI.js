@@ -28,7 +28,7 @@ describe('Login API functional test', ()=> {
   }
   cy.request(options).then((resp) => {
     expect(resp.status).to.eq(200)
-    expect(resp.body.result.totalCount).to.eq(28)
+    expect(resp.body.result.totalCount).to.eq(14)
   })
 })
 })

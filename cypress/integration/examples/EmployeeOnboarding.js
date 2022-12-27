@@ -57,6 +57,7 @@ describe('batik test suite', function() {
     })
         })
         employeeDir.getUploadCTA().click()
+        cy.wait(2000)
         employeeDir.getOnboardingReport().then(function(element){
             const actualText = element.text()
             expect(actualText.includes("Onboarding Report")).to.be.true

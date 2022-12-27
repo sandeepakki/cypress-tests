@@ -13,11 +13,11 @@ describe('batik test suite', function() {
     //runs before all tests in the block
     cy.fixture('example').then(function(data){
     this.data=data
-   cy.visit('/')
+    cy.visit('/')
     })
+    
 })
     it('performs employer login & Logout test', function()  { 
-  
     loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
     loginPage.getEmployerCTA().click()
     cy.employerLogin(this.data.employerUser,this.data.employerPassword)
@@ -39,7 +39,6 @@ describe('batik test suite', function() {
     })
     //unauthorized login
     it('performs unauthorized logins into batik',function(){
-      
       loginPage.getEmployerCTA().click()
       cy.unauthLogin(this.data.unauthUser,this.data.unauthPassword)
       loginPage.getLoginCTA().click()

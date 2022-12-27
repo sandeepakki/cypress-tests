@@ -11,5 +11,8 @@
   "incorrectPassword":"admin123",
   "incorrectUser":"us@mailinator.com",
   "correctPassword":"San@3004",
-  "deactivatedUser":"sandeep+warren@tartanhq.com"
+  "deactivatedUser":"sandeep+warren@tartanhq.com",
+  "newUser": "dummy@mailinator.com",
+  "newPassword":"/hSe7WSP"
+
 }
