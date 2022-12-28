@@ -28,8 +28,8 @@ describe('Test all pages when user lands first time', ()=> {
     it('Login with new user creds and verify all the pages', ()=> {
         loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
         loginPage.getEmployerCTA().click()
-        loginPage.getUsername().type('dummy1@mailinator.com') //dummy@mailinator.com
-        loginPage.getPassword().type('*Ds9&Qw8')   // /hSe7WSP
+        loginPage.getUsername().type('rs@mailinator.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include','/employer/dashboard')
         homePage.getHomeText().should('have.text','Home')
@@ -72,5 +72,21 @@ describe('Test all pages when user lands first time', ()=> {
         myBene.getNoDisBenefitsText().eq(1).should('have.text','No Benefits are available right now')
         myBene.getPurchasedBenefitsTab().click()
         myBene.getNoDisBenefitsText().eq(1).should('have.text','No Benefits are available right now')
+        navigation.getNotificationIcon().click()
+        navigation.getNotificationHeading().should('have.text','Verify your Phone number')
+        navigation.getCloseNotification().click()
+        navigation.getNeedAssistanceIcon().click()
+        navigation.getNeedAssisText().should('have.text','Need assistance ?')
+        navigation.getWritetoUsCTA().should('have.text',' Write to us')
+        navigation.getMenuList().eq(0).click({force: true})
+        navigation.getMenuList().eq(1).click({force: true})
+        navigation.getEditDetailsCTA().should('have.text','Edit Details')
+        navigation.getSettingslink().click()
+        navigation.getVerifyNowlink().click()
+        navigation.getGobackLink().click()
+        navigation.getResetPasswordCTA().click()
+        navigation.getResetPassText().should('have.text','Reset your Password')
+        navigation.getGobackLink().click()
+        navigation.getPoweredByText().should('have.text','Powered by')
     })
 })
