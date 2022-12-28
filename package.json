@@ -8,7 +8,7 @@
     "test": ".//node_modules//.bin/cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome",
-    "recordDashboardTest": "npm run test -- --record --key c31f4284-2d1d-42e8-81a7-09553eec00c2 --browser chrome"
+    "recordDashboardTest": "npm run test -- --record --key c31f4284-2d1d-42e8-81a7-09553eec00c2 --browser firefox"
   },
   "repository": {
     "type": "git",

@@ -42,11 +42,12 @@ describe('batik test suite', function() {
         cy.wrap($el).click()
     }
 })
+cy.wait(2000)
 benefitsPage.activateBenefitCTA().click()
-cy.wait(1000)
+cy.wait(2000)
 benefitsPage.getSuccessToast().should('have.text','Successfully activated benefit')
 activatedPage.getActivatedBenefitsLink().click()
-cy.wait(1000)
+cy.wait(2000)
 activatedPage.getCategorieFilter().each(($el, index, $list) => {
   const catText = $el.text()
   if(catText.includes('Healthcare Plan')){
