@@ -18,6 +18,40 @@ describe('batik test suite', function () {
             cy.visit('/')
         })
     })
+    it('Purchase Gift Card as an employer',function(){
+
+        loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+        loginPage.getEmployerCTA().click()
+        loginPage.getUsername().type('sandeep+15june@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getPassword().type('San@300494')   // /hSe7WSP | *Ds9&Qw8
+        loginPage.getLoginCTA().click()
+        cy.url().should('include', '/employer/dashboard')
+        homePage.getHomeText().should('have.text', 'Home')
+        navigation.getNavBarLinks().each(($el, index, $list) => {
+            const NavLink = $el.text()
+            if (NavLink.includes('Gift & Reward')) {
+                cy.wrap($el).click()
+            }
+        }) 
+        giftcards.getBuyGCCTA().click()
+        giftcards.getMyntraBrand().click()
+        cy.wait(2000)
+        giftcards.getBuyBtn().eq(0).click()
+        giftcards.getCardPrices().eq(1).click()
+        giftcards.getCardPrices().eq(2).click()
+        giftcards.getInputPrice().eq(0).type('10')
+        giftcards.getMinPriceText().should('have.text','Enter amount above Rs. 100')
+        giftcards.getInputPrice().clear()
+        giftcards.getInputPrice().eq(0).type('100')
+        giftcards.getHowManyCardsText().should('have.text','How many cards you want?')
+        giftcards.getInputPrice().eq(1).clear()
+        giftcards.getInputPrice().eq(1).type('26')
+        giftcards.getMaxCardsText().should('have.text','Number of cards should not be more than 25')
+        giftcards.getInputPrice().eq(1).clear()
+        giftcards.getInputPrice().eq(1).type('25')
+        giftcards.getBuyNowCTA().click()
+        giftcards.getEaseBuzz().eq(0).should('have.text','Easebuzz')
+    })
     it('Distribute Purchased Gift Cards to onboarded employee without csv', function () {
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')

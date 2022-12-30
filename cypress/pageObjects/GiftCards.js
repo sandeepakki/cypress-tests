@@ -93,7 +93,42 @@ class GiftCardsPage
     {
       return cy.get("input[type='text']")
     }
+    getMyntraBrand()
+    {
+      return cy.get("div.css-11abw1y > img[src='/gift card brands/myntra.svg']")
+    }
+    getBuyBtn()
+    {
+      return cy.get('button.chakra-button.css-jix8hi')
+    }
+    getCardPrices()
+    {
+      return cy.get('button.chakra-button.css-1ugvew5')
+    }
+    getInputPrice()
+    {
+      return cy.get("input[type='number']")
+    }
+    getMinPriceText()
+    {
+      return cy.get('div.css-1tnytw7 > p.chakra-text.css-0')
+    }
+    getHowManyCardsText()
+    {
+      return cy.get('p.chakra-text.css-ejo1a3')
+    }
+    getMaxCardsText()
+    {
+      return cy.get('p.chakra-text.css-zmeola')
+    }
+    getBuyNowCTA()
+    {
+      return cy.get('button.chakra-button.css-cik81r')
+    }
+    getEaseBuzz()
+    {
+      return cy.get('p.chakra-text.css-1cu3syb')
+    }
 }
-
 export default GiftCardsPage
 
