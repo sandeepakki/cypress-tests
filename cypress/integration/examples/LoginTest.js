@@ -7,72 +7,64 @@ const loginPage = new LoginPage()
 const homePage = new HomePage()
 const benefitsPage = new BenefitsPage()
 
-describe('batik test suite', function() {
+describe('batik test suite', function () {
 
-  beforeEach(function(){
+  beforeEach(function () {
     //runs before all tests in the block
-    cy.fixture('example').then(function(data){
-    this.data=data
-    cy.visit('/')
+    cy.fixture('example').then(function (data) {
+      this.data = data
+      cy.visit('/')
     })
-    
-})
-    it('performs employer login & Logout test', function()  { 
-    loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
-    loginPage.getEmployerCTA().click()
-    cy.employerLogin(this.data.employerUser,this.data.employerPassword)
+
+  })
+  //employer login & logout
+  it('performs login & Logout test', function () {
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getLoginWithEmailCTA().click()
+    cy.Login(this.data.ValidUser, this.data.ValidPassword)
     loginPage.getLoginCTA().click()
-    cy.url().should('include','/employer/dashboard')
-    homePage.getHomeText().should('have.text','Home')
+    cy.url().should('include', '/employer/dashboard')
+    homePage.getHomeText().should('have.text', 'Home')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()
-    })
-    //employee login & Logout
-    it('perform employee login & Logout tests', function()  { 
-    
-    cy.employeeLogin(this.data.employeeUser,this.data.employeePassword)
+  })
+  //employee login & Logout
+  it('perform employee login & Logout tests', function () {
+    loginPage.getLoginWithEmailCTA().click()
+    cy.Login(this.data.employeeAccess, this.data.employeePWD)
     loginPage.getLoginCTA().click()
-    cy.url().should('include','/employee/dashboard')
-    benefitsPage.getBenefitsText().should('have.text','Benefits')
+    cy.url().should('include', '/employee/dashboard')
+    benefitsPage.getBenefitsText().should('have.text', 'Benefits')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()
-    })
-    //unauthorized login
-    it('performs unauthorized logins into batik',function(){
-      loginPage.getEmployerCTA().click()
-      cy.unauthLogin(this.data.unauthUser,this.data.unauthPassword)
-      loginPage.getLoginCTA().click()
-      loginPage.getUserNotfoundText().then(function(element){
-        const actualText = element.text()
-      expect(actualText.includes("User Not Found")).to.be.true
-      })
-    })
-    //employee tries to login as employer
-    it('if employee tries to login as employer',function(){
-      loginPage.getEmployerCTA().click()
-    cy.loginAsEmployer(this.data.employeeUser,this.data.employeePassword)
+  })
+  //unauthorized login
+  it('performs unauthorized logins into batik', function () {
+    loginPage.getLoginWithEmailCTA().click()
+    cy.Login(this.data.unauthUser, this.data.unauthPassword)
     loginPage.getLoginCTA().click()
-    loginPage.getUserNotfoundText().then(function(element){
+    loginPage.getUserNotfoundText().then(function (element) {
       const actualText = element.text()
-      expect(actualText.includes("Please use the")).to.be.true
-      cy.wait(1000)
+      expect(actualText.includes("User Not Found")).to.be.true
     })
   })
   //employee enter incorrect username / password
-  it('if employee enters incorrect Username/Password',function(){
-    cy.IncorrectUnPwd(this.data.correctUser,this.data.incorrectPassword)
+  it('if employee enters incorrect Username/Password', function () {
+    loginPage.getLoginWithEmailCTA().click()
+    cy.Login(this.data.correctUser, this.data.incorrectPassword)
     loginPage.getLoginCTA().click()
-    homePage.getIncorrectUser().then(function(element){
+    homePage.getIncorrectUser().then(function (element) {
       const actualText = element.text()
       expect(actualText.includes("Incorrect Username / Password")).to.be.true
     })
   })
-  it('if deactivated employee tries to login',function(){
-    cy.IncorrectUnPwd(this.data.deactivatedUser,this.data.correctPassword)
+  it('if deactivated employee tries to login', function () {
+    loginPage.getLoginWithEmailCTA().click()
+    cy.Login(this.data.deactivatedUser, this.data.correctPassword)
     loginPage.getLoginCTA().click()
-    homePage.getIncorrectUser().then(function(element){
+    homePage.getIncorrectUser().then(function (element) {
       const actualText = element.text()
-      expect(actualText.includes("Batik user account")).to.be.true
+      expect(actualText.includes("User Not Found")).to.be.true
     })
   })
-  })
+})

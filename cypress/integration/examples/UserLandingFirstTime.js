@@ -27,7 +27,7 @@ describe('Test all pages when user lands first time', ()=> {
 
     it('Login with new user creds and verify all the pages', ()=> {
         loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
-        loginPage.getEmployerCTA().click()
+        loginPage.getLoginWithEmailCTA().click()
         loginPage.getUsername().type('rs@mailinator.com') //dummy@mailinator.com | dummy1@mailinator.com
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()

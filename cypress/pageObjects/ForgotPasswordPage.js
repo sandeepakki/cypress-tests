@@ -26,7 +26,7 @@ class ForgotPage
     }
     getEmailFieldFeedback()
     {
-        return cy.get('#field-2-feedback')
+        return cy.get('.chakra-toast > .chakra-toast__inner > .css-1lik65u')
     }
     getPinbox0()
     {
@@ -118,7 +118,7 @@ class ForgotPage
     }
     getInvalidVerifyText()
     {
-        return cy.get('.chakra-toast > .chakra-toast__inner > .css-1lik65u > .css-zg1vud > .chakra-text')
+        return cy.get('.chakra-toast > .chakra-toast__inner > .css-1lik65u')
     }
 }
 export default ForgotPage

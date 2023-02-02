@@ -41,6 +41,10 @@ class GiftCardsPage
     {
       return cy.get('button.chakra-button.css-bvv7e3')
     }
+    getSearchEmployee()
+    {
+      return cy.get("input[type='text']")
+    }
     getTempContinue()
     {
       return cy.get('button.chakra-button.css-qfhsrb')
@@ -95,7 +99,7 @@ class GiftCardsPage
     }
     getMyntraBrand()
     {
-      return cy.get("div.css-11abw1y > img[src='/gift card brands/myntra.svg']")
+      return cy.get("div#root > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(4) > img")
     }
     getBuyBtn()
     {

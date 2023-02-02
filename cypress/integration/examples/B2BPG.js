@@ -31,14 +31,14 @@ describe('batik test suite', function () {
     benefitsPage.getViewAll().click()
     benefitsPage.selectBenefit().each(($el, index, $list) => {
       const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
-      if (benefitText.includes('UCare Health Saving Plan ')) {
+      if (benefitText.includes('UCare Health Saving Plan')) {
         cy.wrap($el).click()
       }
     })
     benefitsPage.getBuyNowCTA().click()
     cy.wait(1000)
     benefitsPage.getAddEmployeesCTA().click()
-    benefitsPage.getDistributionSearch().type('sandeep kumar')
+    benefitsPage.getDistributionSearch().type('sandeep')
     cy.wait(1000)
     benefitsPage.getCheckbox().click()
     benefitsPage.getClearSelectionCTA().click()
@@ -49,7 +49,7 @@ describe('batik test suite', function () {
     benefitsPage.getDonebtn().click()
     benefitsPage.getAddMoreCTA().click()
     cy.wait(1000)
-    benefitsPage.getDistributionSearch().type('Mani', { force: true })
+    benefitsPage.getDistributionSearch().type('divya', { force: true })
     cy.wait(1000)
     benefitsPage.getCheckbox().click()
     benefitsPage.getDoneCTA().click()

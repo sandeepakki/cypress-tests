@@ -26,6 +26,7 @@ describe('batik test suite', function() {
         cy.clearCookies()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
+      loginPage.getLoginWithEmailCTA().click()
       loginPage.getDontRememberPasswordText().then(function(element){
        const actualText = element.text()
        expect(actualText.includes("Don’t remember password?")).to.be.true
@@ -36,11 +37,12 @@ describe('batik test suite', function() {
             const actualText = element.text()
             expect(actualText.includes("Enter your work email address")).to.be.true
            })
-        fpPage.getEmailField().type("xxx@tartanhq.com").blur() 
+        fpPage.getEmailField().type("xyz@tartanhq.com").blur() 
         fpPage.getSubmitbutton().click()
-        fpPage.getEmailFieldFeedback().should('have.text','Email is not Registered with us')
+        cy.wait(1000)
+        fpPage.getEmailFieldFeedback().should('have.text','Request failed with status code 404')
         fpPage.getEmailField().clear()
-        fpPage.getEmailField().type("sandeep+hrms@tartanhq.com").blur() 
+        fpPage.getEmailField().type("sandeep@tartanhq.com").blur() 
         fpPage.getSubmitbutton().click()
         fpPage.getCodeSentText().should('have.text','Code sent!')
         fpPage.getPinbox0().type("1")
@@ -62,9 +64,10 @@ describe('batik test suite', function() {
             expect(actualText.includes("Passwords must match")).to.be.true
         })
         fpPage.getReturntoLoginLink().click()
-        cy.url().should('include','/employee/login')
+        cy.url().should('include','/login')
+        loginPage.getLoginWithEmailCTA().click()
         loginPage.getClickHereLink().click()
-        fpPage.getNewEmailField().type("sandeep+hrms@tartanhq.com").blur() 
+        fpPage.getNewEmailField().type("sandeep@tartanhq.com").blur() 
         fpPage.getSubmitbutton().click()
         fpPage.getCodeSentText().should('have.text','Code sent!')
         fpPage.getNewPin0().type("1")
@@ -76,10 +79,6 @@ describe('batik test suite', function() {
         fpPage.getNewPasswordfield().type("Admin@1234")
         fpPage.getConfirmPasswordfield().type("Admin@1234")
         fpPage.getFinalSubmitbutton().click()
-        fpPage.getInvalidVerifyText().then(function(element){
-            const actualText = element.text()
-            expect(actualText.includes("Invalid verification code"))
-
+        fpPage.getInvalidVerifyText().should('have.text','Code expired')
         })
     })
-})

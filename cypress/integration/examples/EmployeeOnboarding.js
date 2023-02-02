@@ -11,7 +11,7 @@ describe('batik test suite', function() {
       this.data=data
       })
   })
-      it('performs actions on home page links', function()  { 
+      it('Onboards Employee in corporate under employee directory', function()  { 
         const loginPage = new LoginPage()
         const homePage = new HomePage()
         const employeeDir =  new EmployeeDirectory()
@@ -20,8 +20,8 @@ describe('batik test suite', function() {
         cy.clearCookies()
       cy.visit('/')
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
-      loginPage.getEmployerCTA().click()
-      cy.employerLogin(this.data.employerUser,this.data.employerPassword)
+      loginPage.getLoginWithEmailCTA().click()
+      cy.Login(this.data.ValidUser,this.data.ValidPassword)
       loginPage.getLoginCTA().click()
       cy.url().should('include','/employer/dashboard')
       homePage.getHomeText().should('have.text','Home') 

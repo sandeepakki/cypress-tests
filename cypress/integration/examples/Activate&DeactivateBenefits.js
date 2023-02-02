@@ -38,7 +38,7 @@ describe('batik test suite', function() {
   })
   benefitsPage.selectBenefit().each(($el, index, $list) => {
     const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
-    if(benefitText.includes('Lorem Ipsum is a dummy text..!')){
+    if(benefitText.includes('Apollo 24|7 Circle Membership')){
         cy.wrap($el).click()
     }
 })
@@ -54,8 +54,8 @@ activatedPage.getCategorieFilter().each(($el, index, $list) => {
       cy.wrap($el).click()
   }
 })
-activatedPage.getSearchInput().type('Lorem', {force: true})
-activatedPage.getSearchedBenefit().should('have.text',"Lorem Ipsum is a dummy text..!")
+activatedPage.getSearchInput().type('Circle', {force: true})
+activatedPage.getSearchedBenefit().should('have.text',"Apollo 24|7 Circle Membership")
 activatedPage.getDeactivatedCTA().click()
 activatedPage.getCancelCTA().click()
 activatedPage.getDeactivatedCTA().click()

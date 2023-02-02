@@ -2,7 +2,7 @@ class BenefitsPage
 {
 getBenefitsText(){
 
- return cy.get('div.css-1cp9nse > .chakra-text.css-0')
+ return cy.get('div.css-z2qe91 > p.chakra-text.css-0')
 }
 getCorporateBenefitsText()
 {
@@ -34,7 +34,7 @@ getSuccessToast()
            
 }
 getViewAll(){
-     return cy.get('.css-1ac8m8p')
+     return cy.get('.css-1zfcfp > .chakra-text')
 }
 getBuyNowCTA(){
    return cy.get('.css-8atqhb > .chakra-button') 
@@ -113,29 +113,21 @@ getTotalPayable()
 {
     return cy.get('.css-164oxdm')
 }
-getHealthCare1()
+getNoTaxBenefit()
 {
-    return cy.get('h2').contains('Healthcare Test Scenario 1')
+    return cy.get('h2').contains('No Tax')
 }
-getHealthCare6()
+getNoTaxwithOfferBenefit()
 {
-    return cy.get('h2').contains('Healthcare Test scenario 6')
+    return cy.get('h2').contains('No Tax with Offer')
 }
-getHealthCare2()
+getTaxAddedBenefit()
 {
-    return cy.get('h2').contains('Healthcare Test Scenario2')
+    return cy.get('h2').contains('Taxes Added')
 }
-getHealthCare3()
+getTaxAddedwithOfferBenefit()
 {
-    return cy.get('h2').contains('Healthcare Test Scenario 3')
-}
-getHealthCare4()
-{
-    return cy.get('h2').contains('Healthcare Test Scenario 4')
-}
-getHealthCare5()
-{
-    return cy.get('h2').contains('Healthcare test scenario 5')
+    return cy.get('h2').contains('Taxes Added with offer')
 }
 getBuyNow()
 {
@@ -143,7 +135,7 @@ getBuyNow()
 }
 getTaxViewAll()
 {
-    return cy.get(':nth-child(1) > .css-1chji2x > .css-1ac8m8p')
+    return cy.get('div#root > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > div:nth-of-type(4) > div > div > p')
 }
 getGiftPageText()
 {

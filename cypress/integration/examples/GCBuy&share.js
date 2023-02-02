@@ -21,9 +21,9 @@ describe('batik test suite', function () {
     it('Purchase Gift Card as an employer',function(){
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
-        loginPage.getEmployerCTA().click()
-        loginPage.getUsername().type('sandeep+15june@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
-        loginPage.getPassword().type('San@300494')   // /hSe7WSP | *Ds9&Qw8
+        loginPage.getLoginWithEmailCTA().click()
+        loginPage.getUsername().type('sandeep+anand@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
         homePage.getHomeText().should('have.text', 'Home')
@@ -55,8 +55,8 @@ describe('batik test suite', function () {
     it('Distribute Purchased Gift Cards to onboarded employee without csv', function () {
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
-        loginPage.getEmployerCTA().click()
-        loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getLoginWithEmailCTA().click()
+        loginPage.getUsername().type('sandeep+anand@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
@@ -77,6 +77,9 @@ describe('batik test suite', function () {
         giftcards.getSelectEmp().should('have.text', 'Select Employees')
         giftcards.getSelectEmpBtn().click()
         giftcards.getContinueBtn().click()
+        cy.wait(1000)
+        giftcards.getSearchEmployee().type('karthik{enter}',{force: true})
+        cy.wait(1000)
         giftcards.getCheckBoxSelection().click()
         giftcards.getContinue().click()
         giftcards.getTempContinue().click()
@@ -87,8 +90,8 @@ describe('batik test suite', function () {
     it('Distribute Purchased Gift Cards to Outsider', function () {
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
-        loginPage.getEmployerCTA().click()
-        loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getLoginWithEmailCTA().click()
+        loginPage.getUsername().type('sandeep+anand@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
@@ -119,8 +122,8 @@ describe('batik test suite', function () {
     it('Distribute Purchased Gift Cards to onboarded employees with csv and custom template', function () {
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
-        loginPage.getEmployerCTA().click()
-        loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getLoginWithEmailCTA().click()
+        loginPage.getUsername().type('sandeep+anand@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')

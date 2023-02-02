@@ -22,8 +22,8 @@ describe('batik test suite', function () {
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare1().click()
+   // benefitsPage.getTaxViewAll().click()
+    benefitsPage.getNoTaxBenefit().eq(1).click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
@@ -55,8 +55,8 @@ describe('batik test suite', function () {
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare6().click()
+  //  benefitsPage.getTaxViewAll().click()
+    benefitsPage.getNoTaxwithOfferBenefit().click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
@@ -93,41 +93,8 @@ describe('batik test suite', function () {
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare2().click()
-    benefitsPage.getBuyNow().click()
-    benefitsPage.getQuantityInput().type('1')
-    let total=0
-    benefitsPage.getAmount().then(function(amount){
-      const amtText = amount.text()
-      let amtRes = amtText.split("₹")
-      amtRes=amtRes[1]
-      total = Number(total)+Number(amtRes)
-      cy.log(total)
-    })
-    benefitsPage.getTaxesWithoutAnyOffer().then(function(tax){
-      const taxText = tax.text()
-      let taxRes = taxText.split("₹")
-      taxRes = taxRes[1]
-      total = Number(total)+Number(taxRes)
-      cy.log(total)
-    })
-      benefitsPage.getTotalPayable().then(function(amtPayable){
-        const payableText = amtPayable.text()
-        let payRes = payableText.split("₹")
-        let amountPayable = payRes[1]
-        expect(Number(amountPayable)).to.equal(Number(total))
-      })
-  })
-  it('amount validation without offer and included tax 18% in benefit amount', function () {
-
-    cy.url().should('include', 'employer/dashboard')
-    homePage.getHomeText().should('have.text', 'Home')
-    benefitsPage.getBenefitsLink().click()
-    cy.url().should('include', '/benefits/corporate')
-    cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare3().click()
+  //  benefitsPage.getTaxViewAll().click()
+    benefitsPage.getTaxAddedBenefit().eq(1).click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
@@ -159,46 +126,8 @@ describe('batik test suite', function () {
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare4().click()
-    benefitsPage.getBuyNow().click()
-    benefitsPage.getQuantityInput().type('1')
-    let total=0
-    benefitsPage.getAmount().then(function(amount){
-        const amtText = amount.text()
-        let amtRes = amtText.split("₹")
-        amtRes=amtRes[1]
-        total = Number(total)+Number(amtRes)
-      })
-      benefitsPage.getDiscount().then(function(disc){
-        const discText = disc.text()
-        let discRes = discText.split("%")
-        discRes = discRes[0]
-        total = Number(total)-Number((total*discRes)/100)
-      })
-      benefitsPage.getTaxes().then(function(tax){
-        const taxText = tax.text()
-        let taxRes = taxText.split("₹")
-        taxRes = taxRes[1]
-        total = (Number(total)+(Number(taxRes))).toFixed(2)
-        cy.log(total)
-      })
-        benefitsPage.getTotalPayable().then(function(amtPayable){
-          const payableText = amtPayable.text()
-          let payRes = payableText.split("₹")
-          let amountPayable = payRes[1]
-          expect(Number(amountPayable)).to.equal(Number(total))
-        })
-  })
-  it('amount validation with 5% offer and including tax 18% in benefit amount', function () {
-
-    cy.url().should('include', 'employer/dashboard')
-    homePage.getHomeText().should('have.text', 'Home')
-    benefitsPage.getBenefitsLink().click()
-    cy.url().should('include', '/benefits/corporate')
-    cy.wait(1000)
-    benefitsPage.getTaxViewAll().click()
-    benefitsPage.getHealthCare5().click()
+   // benefitsPage.getTaxViewAll().click()
+    benefitsPage.getTaxAddedwithOfferBenefit().eq(1).click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0

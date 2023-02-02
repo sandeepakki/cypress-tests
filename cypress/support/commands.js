@@ -15,32 +15,16 @@ import LoginPage from '../pageObjects/LoginPage'
 // Cypress.Commands.add('login', (email, password) => { ... })
 import 'cypress-file-upload';
 const loginPage = new LoginPage
-Cypress.Commands.add('employerLogin', (employerUser, employerPassword) => {
-  loginPage.getUsername().type(employerUser)
-  loginPage.getPassword().type(employerPassword)
-})
-Cypress.Commands.add('employeeLogin', (employeeUser, employeePassword) => {
-  loginPage.getUsername().type(employeeUser)
-  loginPage.getPassword().type(employeePassword)
-})
-Cypress.Commands.add('loginAsEmployer', (employeeUser, employeePassword) => {
-  loginPage.getUsername().type(employeeUser)
-  loginPage.getPassword().type(employeePassword)
-})
-Cypress.Commands.add('unauthLogin', (unauthUser, unauthPassword) => {
-  loginPage.getUsername().type(unauthUser)
-  loginPage.getPassword().type(unauthPassword)
-})
-Cypress.Commands.add('IncorrectUnPwd', (correctUser, incorrectPassword) => {
-  loginPage.getUsername().type(correctUser)
-  loginPage.getPassword().type(incorrectPassword)
+Cypress.Commands.add('Login', (Email,Password) => {
+  loginPage.getUsername().type(Email)
+  loginPage.getPassword().type(Password)
 })
 Cypress.Commands.add('LoginAPI', (email, password, poolID) => {
   cy.session([email, password, poolID], () => {
     cy.request({
       method: 'POST',
-      url: 'https://api-stg.tartanhq.com/marvel/api/v1/employer/login',
-      body: { email: "sandeep+15june@tartanhq.com", password: "San@300494", poolId: "ap-south-1_xH9pAN2Zu" }
+      url: 'https://api-stg.tartanhq.com/marvel/api/v1/login',
+      body: {loginKey:"legacy@mailinator.com",password:"San@30041994",poolId:"ap-south-1_xH9pAN2Zu"}
     }).then(({ body })=> {
     // expect(body.status).to.eq(200)
       const token = {

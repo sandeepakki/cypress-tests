@@ -1,8 +1,8 @@
 {
-  "employerUser": "sandeep+15june@tartanhq.com",
-  "employerPassword": "San@300494",
-  "employeeUser" : "sandeep+003@tartanhq.com",
-  "employeePassword":"San@3004",
+  "ValidUser": "legacy@mailinator.com",
+  "ValidPassword": "San@30041994",
+  "employeeAccess": "divya@mailinator.com",
+  "employeePWD" : "San@3004",
   "unauthUser": "sandeep+10aug@tartanhq.com",
   "unauthPassword": "SaN@3004",
   "invalidUsername":"sandeep+10aug@tartanhq.com",
@@ -11,7 +11,7 @@
   "incorrectPassword":"admin123",
   "incorrectUser":"us@mailinator.com",
   "correctPassword":"San@3004",
-  "deactivatedUser":"sandeep+warren@tartanhq.com",
+  "deactivatedUser":"VishalC@mailinator.com",
   "newUser": "dummy@mailinator.com",
   "newPassword":"/hSe7WSP"
 
