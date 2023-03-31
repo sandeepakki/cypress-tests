@@ -35,7 +35,7 @@ describe('batik test suite', function () {
     cy.Login(this.data.employeeAccess, this.data.employeePWD)
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employee/dashboard')
-    homePage.getPopModelClose().click()
+   // homePage.getPopModelClose().click()
     benefitsPage.getBenefitsText().should('have.text', 'Benefits')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()
