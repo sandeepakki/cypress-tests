@@ -1,6 +1,10 @@
 class HomePage
 {
 
+    getPopModelClose()
+    {
+        return cy.get('.chakra-modal__close-btn')
+    }
     getHomeText()
     {
         return cy.get('p.chakra-text.css-1flyc9m')
@@ -67,7 +71,7 @@ class HomePage
    }
    getAddBtn()
    {
-    return cy.get('.css-1oeb5yi')
+    return cy.get('div.css-j7qwjs > p.css-1oeb5yi')
    }
    getReadArticleLink()
    {

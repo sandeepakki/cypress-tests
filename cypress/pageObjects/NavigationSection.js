@@ -7,15 +7,11 @@ class NavigationSection
     }
     getEmployeeView()
     {
-      return cy.get('.css-1fqjqon')
+      return cy.get('.css-yjw5sa')
     }
     getNotificationIcon()
     {
       return cy.get('div.css-2ego18')
-    }
-    getNotificationHeading()
-    {
-      return cy.get('p.chakra-text.css-1i7fko9')
     }
     getCloseNotification()
     {
@@ -44,10 +40,6 @@ class NavigationSection
     getSettingslink()
     {
       return cy.get('p.chakra-text.css-mf14o2')
-    }
-    getVerifyNowlink()
-    {
-      return cy.get('p.chakra-text.css-1wh4mwd')
     }
     getGobackLink()
     {

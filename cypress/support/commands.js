@@ -24,20 +24,10 @@ Cypress.Commands.add('LoginAPI', (email, password, poolID) => {
     cy.request({
       method: 'POST',
       url: 'https://api-stg.tartanhq.com/marvel/api/v1/login',
-      body: {loginKey:"legacy@mailinator.com",password:"San@30041994",poolId:"ap-south-1_xH9pAN2Zu"}
+      body: {loginKey:"legacy@mailinator.com",password:"San@300494",poolId:"ap-south-1_xH9pAN2Zu"}
     }).then(({ body })=> {
-    // expect(body.status).to.eq(200)
-      const token = {
-        state: {
-          "session": {
-            "accessToken": {
-              "jwtToken": body.accessToken
-            }},
-          user: body.user
-        },
-        version: 0
-      }
-      window.localStorage.setItem('batik-user-stg', JSON.stringify(token))
+      console.log(body.accessToken)
+     Cypress.env('batik-user-stg',body.accessToken)
     })
   })
 })

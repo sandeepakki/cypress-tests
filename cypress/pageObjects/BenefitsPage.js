@@ -1,7 +1,7 @@
 class BenefitsPage
 {
-getBenefitsText(){
-
+getBenefitsText()
+{
  return cy.get('div.css-z2qe91 > p.chakra-text.css-0')
 }
 getCorporateBenefitsText()
@@ -15,6 +15,10 @@ getEmployeeBenefitsText()
 getCategories()
 {
     return cy.get('div.css-rwkbdd > div.css-j7qwjs')
+}
+getSubCategories()
+{
+    return cy.get('div.css-4bzq66')
 }
 getBenefitsLink()
 {
@@ -33,7 +37,8 @@ getSuccessToast()
     return cy.get('.chakra-toast > .chakra-toast__inner > .css-1lik65u > .css-j7qwjs > .css-1przbv1')
            
 }
-getViewAll(){
+getViewAll()
+{
      return cy.get('.css-1zfcfp > .chakra-text')
 }
 getBuyNowCTA(){
@@ -95,19 +100,23 @@ getQuantityInput()
 }
 getAmount()
 {
-    return cy.get(':nth-child(7) > .css-3u2sdd')
-}
-getDiscount()
-{
-    return cy.get('.css-1c6sbgk')
+    return cy.get('div.css-1nffez8')
 }
 getTaxes()
 {
-    return cy.get(':nth-child(9) > .css-3u2sdd')
+    return cy.get('div.css-1nffez8')
+}
+getDiscount()
+{
+    return cy.get('div.css-1qauprg > p.css-1c6sbgk')
+}
+getTaxeswithOffer()
+{
+    return cy.get(':nth-child(10) > .css-3u2sdd')
 }
 getTaxesWithoutAnyOffer()
 {
-    return cy.get(':nth-child(8) > .css-3u2sdd')
+    return cy.get(':nth-child(9) > .css-3u2sdd')
 }
 getTotalPayable()
 {
@@ -115,19 +124,19 @@ getTotalPayable()
 }
 getNoTaxBenefit()
 {
-    return cy.get('h2').contains('No Tax')
+    return cy.get('p.css-u8gjsp').contains('No Tax',{ matchCase: false })
 }
 getNoTaxwithOfferBenefit()
 {
-    return cy.get('h2').contains('No Tax with Offer')
+    return cy.get('p.css-u8gjsp').contains('No Tax with Offer',{ matchCase: false })
 }
 getTaxAddedBenefit()
 {
-    return cy.get('h2').contains('Taxes Added')
+    return cy.get(':nth-child(3) > .css-70qvj9 > .chakra-text')
 }
 getTaxAddedwithOfferBenefit()
 {
-    return cy.get('h2').contains('Taxes Added with offer')
+    return cy.get('p').contains('Taxes Added with offer',{ matchCase: false })
 }
 getBuyNow()
 {
@@ -140,6 +149,10 @@ getTaxViewAll()
 getGiftPageText()
 {
     return cy.get('p.chakra-text.css-t5co4c')
+}
+getAllTaxesGroupHeading()
+{
+    return cy.get('h2').contains('All Tax Scenarios')
 }
 }
 export default BenefitsPage

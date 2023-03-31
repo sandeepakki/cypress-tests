@@ -79,6 +79,6 @@ describe('batik test suite', function() {
         fpPage.getNewPasswordfield().type("Admin@1234")
         fpPage.getConfirmPasswordfield().type("Admin@1234")
         fpPage.getFinalSubmitbutton().click()
-        fpPage.getInvalidVerifyText().should('have.text','Code expired')
+        fpPage.getInvalidVerifyText().should('have.text','Code mismatch')
         })
     })

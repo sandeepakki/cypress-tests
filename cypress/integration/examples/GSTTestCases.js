@@ -11,23 +11,40 @@ describe('batik test suite', function () {
     //runs before all tests in the block
     cy.fixture('example').then(function (data) {
       this.data = data
-      cy.LoginAPI()
       cy.visit('/')
     })
   })
   it('amount validation without offer and tax 0', function () {
 
-    cy.url().should('include', 'employer/dashboard')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getLoginWithEmailCTA().click()
+    loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+    loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
+    loginPage.getLoginCTA().click()
+    cy.url().should('include', '/employer/dashboard')
+    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-   // benefitsPage.getTaxViewAll().click()
-    benefitsPage.getNoTaxBenefit().eq(1).click()
+    benefitsPage.getCategories().each(($el, index, $list) => {
+      const CatText = $el.find('.chakra-text.css-xxplq9').text()
+      if (CatText.includes('Health care')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.selectBenefit().each(($el, index, $list) => {
+      const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
+      if (benefitText.includes('All Tax Scenarios')) {
+        cy.wrap($el).click()
+      }
+    })
+
+    benefitsPage.getNoTaxBenefit().click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
-    benefitsPage.getAmount().then(function(amount){
+    benefitsPage.getAmount().eq(1).then(function(amount){
       const amtText = amount.text()
       let amtRes = amtText.split("₹")
       amtRes=amtRes[1]
@@ -50,17 +67,34 @@ describe('batik test suite', function () {
   })
   it('amount validation with 5% offer and tax 0', function () {
 
-    cy.url().should('include', 'employer/dashboard')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getLoginWithEmailCTA().click()
+    loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+    loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
+    loginPage.getLoginCTA().click()
+    cy.url().should('include', '/employer/dashboard')
+    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-  //  benefitsPage.getTaxViewAll().click()
+    benefitsPage.getCategories().each(($el, index, $list) => {
+      const CatText = $el.find('.chakra-text.css-xxplq9').text()
+      if (CatText.includes('Health care')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.selectBenefit().each(($el, index, $list) => {
+      const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
+      if (benefitText.includes('All Tax Scenarios')) {
+        cy.wrap($el).click()
+      }
+    })
     benefitsPage.getNoTaxwithOfferBenefit().click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
-    benefitsPage.getAmount().then(function(amount){
+    benefitsPage.getAmount().eq(1).then(function(amount){
         const amtText = amount.text()
         let amtRes = amtText.split("₹")
         amtRes=amtRes[1]
@@ -72,7 +106,7 @@ describe('batik test suite', function () {
         discRes = discRes[0]
         total = Number(total)-Number((total*discRes)/100)
       })
-      benefitsPage.getTaxes().then(function(tax){
+      benefitsPage.getTaxeswithOffer().then(function(tax){
         const taxText = tax.text()
         let taxRes = taxText.split("₹")
         taxRes = taxRes[1]
@@ -87,18 +121,34 @@ describe('batik test suite', function () {
         })
   })
   it('amount validation without offer and added tax 18%', function () {
-
-    cy.url().should('include', 'employer/dashboard')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getLoginWithEmailCTA().click()
+    loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+    loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
+    loginPage.getLoginCTA().click()
+    cy.url().should('include', '/employer/dashboard')
+    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-  //  benefitsPage.getTaxViewAll().click()
-    benefitsPage.getTaxAddedBenefit().eq(1).click()
+    benefitsPage.getCategories().each(($el, index, $list) => {
+      const CatText = $el.find('.chakra-text.css-xxplq9').text()
+      if (CatText.includes('Health care')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.selectBenefit().each(($el, index, $list) => {
+      const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
+      if (benefitText.includes('All Tax Scenarios')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.getTaxAddedBenefit().click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
-    benefitsPage.getAmount().then(function(amount){
+    benefitsPage.getAmount().eq(1).then(function(amount){
       const amtText = amount.text()
       let amtRes = amtText.split("₹")
       amtRes=amtRes[1]
@@ -121,17 +171,34 @@ describe('batik test suite', function () {
   })
   it('amount validation with 5% offer and added tax 18%', function () {
 
-    cy.url().should('include', 'employer/dashboard')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getLoginWithEmailCTA().click()
+    loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
+    loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
+    loginPage.getLoginCTA().click()
+    cy.url().should('include', '/employer/dashboard')
+    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
     cy.wait(1000)
-   // benefitsPage.getTaxViewAll().click()
-    benefitsPage.getTaxAddedwithOfferBenefit().eq(1).click()
+    benefitsPage.getCategories().each(($el, index, $list) => {
+      const CatText = $el.find('.chakra-text.css-xxplq9').text()
+      if (CatText.includes('Health care')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.selectBenefit().each(($el, index, $list) => {
+      const benefitText = $el.find('h2.chakra-heading.css-19pytma').text()
+      if (benefitText.includes('All Tax Scenarios')) {
+        cy.wrap($el).click()
+      }
+    })
+    benefitsPage.getTaxAddedwithOfferBenefit().click()
     benefitsPage.getBuyNow().click()
     benefitsPage.getQuantityInput().type('1')
     let total=0
-    benefitsPage.getAmount().then(function(amount){
+    benefitsPage.getAmount().eq(1).then(function(amount){
         const amtText = amount.text()
         let amtRes = amtText.split("₹")
         amtRes=amtRes[1]
@@ -143,7 +210,7 @@ describe('batik test suite', function () {
         discRes = discRes[0]
         total = Number(total)-Number((total*discRes)/100)
       })
-      benefitsPage.getTaxes().then(function(tax){
+      benefitsPage.getTaxeswithOffer().then(function(tax){
         const taxText = tax.text()
         let taxRes = taxText.split("₹")
         taxRes = taxRes[1]

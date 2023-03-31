@@ -1,9 +1,9 @@
 //inheriting 
+/// <reference types="Cypress" />
 import HomePage from '../../pageObjects/HomePage'
 import LoginPage from '../../pageObjects/LoginPage'
 import EmployeeDirectory from '../../pageObjects/EmployeeDirectory'
 import BenefitsPage from '../../pageObjects/BenefitsPage'
-
 //constructors
         const loginPage = new LoginPage()
         const homePage = new HomePage()
@@ -25,6 +25,7 @@ describe('batik test suite', function() {
       loginPage.getLoginWithEmailCTA().click()
       cy.Login(this.data.ValidUser, this.data.ValidPassword)
       loginPage.getLoginCTA().click()
+      homePage.getPopModelClose().click()
       homePage.getHomeText().should('have.text','Home') 
       homePage.getstartOnboardingText().should('have.text','Onboard Employees')
       homePage.getBuyGiftText().should('have.text','Buy Gift and Rewards')
