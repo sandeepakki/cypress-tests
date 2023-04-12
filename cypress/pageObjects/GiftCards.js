@@ -75,7 +75,7 @@ class GiftCardsPage
     }
     getInvalidEmailText()
     {
-      return cy.get('.css-7pd18w > .chakra-text')
+      return cy.get('.css-mxk6kj > .chakra-text')
     }
     getTrashIcon()
     {
@@ -83,7 +83,7 @@ class GiftCardsPage
     }
     getFileUploadSuccessText()
     {
-      return cy.get('.css-7pd18w > .chakra-text')
+      return cy.get('.css-mxk6kj > .chakra-text')
     }
     getCustomTemp()
     {

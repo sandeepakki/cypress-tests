@@ -22,11 +22,11 @@ describe('batik test suite', function () {
 
         loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
         loginPage.getLoginWithEmailCTA().click()
-        loginPage.getUsername().type('sandeep@tartanhq.com') //dummy@mailinator.com | dummy1@mailinator.com
-        loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
+        loginPage.getUsername().type('legacy@mailinator.com') //dummy@mailinator.com | dummy1@mailinator.com
+        loginPage.getPassword().type('San@300494')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
-        homePage.getPopModelClose().click()
+     //   homePage.getPopModelClose().click()
         homePage.getHomeText().should('have.text', 'Home')
         navigation.getNavBarLinks().each(($el, index, $list) => {
             const NavLink = $el.text()
@@ -61,7 +61,7 @@ describe('batik test suite', function () {
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
-        homePage.getPopModelClose().click()
+    //    homePage.getPopModelClose().click()
         homePage.getHomeText().should('have.text', 'Home')
         navigation.getNavBarLinks().each(($el, index, $list) => {
             const NavLink = $el.text()
@@ -97,7 +97,7 @@ describe('batik test suite', function () {
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
-        homePage.getPopModelClose().click()
+  //      homePage.getPopModelClose().click()
         homePage.getHomeText().should('have.text', 'Home')
         navigation.getNavBarLinks().each(($el, index, $list) => {
             const NavLink = $el.text()
@@ -130,7 +130,7 @@ describe('batik test suite', function () {
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
         cy.url().should('include', '/employer/dashboard')
-        homePage.getPopModelClose().click()
+     //   homePage.getPopModelClose().click()
         homePage.getHomeText().should('have.text', 'Home')
         navigation.getNavBarLinks().each(($el, index, $list) => {
             const NavLink = $el.text()

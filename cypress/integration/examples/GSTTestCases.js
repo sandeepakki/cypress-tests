@@ -22,7 +22,7 @@ describe('batik test suite', function () {
     loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employer/dashboard')
-    homePage.getPopModelClose().click()
+   // homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
@@ -73,7 +73,7 @@ describe('batik test suite', function () {
     loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employer/dashboard')
-    homePage.getPopModelClose().click()
+ //   homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
@@ -127,7 +127,7 @@ describe('batik test suite', function () {
     loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employer/dashboard')
-    homePage.getPopModelClose().click()
+//    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')
@@ -177,7 +177,7 @@ describe('batik test suite', function () {
     loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employer/dashboard')
-    homePage.getPopModelClose().click()
+  //  homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     cy.url().should('include', '/benefits/corporate')

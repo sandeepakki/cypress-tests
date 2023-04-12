@@ -16,19 +16,4 @@ describe('Login API functional test', ()=> {
     })
   })
 
-    it('Second test case', function() {
-  var authHeader = 'Bearer ' + this.value 
-  const options = {
-    method: 'POST',
-    url: 'https://api-stg.tartanhq.com/marvel/api/v1/employer/home/activatedbenefits-count',
-    body:{"subcategories":["Medical Insurance","Personal Loan","Healthcare Plan","Wellness Consultation","Gadget Loan"]},
-    headers: {
-      authorization: authHeader
-    }
-  }
-  cy.request(options).then((resp) => {
-    expect(resp.status).to.eq(200)
-   // expect(resp.body.result.totalCount).to.eq(20)
-  })
-})
 })

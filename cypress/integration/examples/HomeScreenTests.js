@@ -25,7 +25,7 @@ describe('batik test suite', function() {
       loginPage.getLoginWithEmailCTA().click()
       cy.Login(this.data.ValidUser, this.data.ValidPassword)
       loginPage.getLoginCTA().click()
-      homePage.getPopModelClose().click()
+    //  homePage.getPopModelClose().click()
       homePage.getHomeText().should('have.text','Home') 
       homePage.getstartOnboardingText().should('have.text','Onboard Employees')
       homePage.getBuyGiftText().should('have.text','Buy Gift and Rewards')

@@ -24,7 +24,7 @@ describe('batik test suite', function() {
       cy.Login(this.data.ValidUser,this.data.ValidPassword)
       loginPage.getLoginCTA().click()
       cy.url().should('include','/employer/dashboard')
-      homePage.getPopModelClose().click()
+    //  homePage.getPopModelClose().click()
       homePage.getHomeText().should('have.text','Home') 
       homePage.getstartOnboardingText().should('have.text','Onboard Employees')
       homePage.getstartOnboardingLink().click()
@@ -46,6 +46,7 @@ describe('batik test suite', function() {
         const actualText = element.text()
         expect(actualText.includes("Uploaded CSV file is empty")).to.be.true
       })
+      cy.wait(2000)
       cy.reload()
       cy.wait(1000)
       employeeDir.getAddEmployeeCTA().click()

@@ -31,7 +31,7 @@ describe('Test all pages when user lands first time', ()=> {
         loginPage.getUsername().type('dummy1@mailinator.com') //dummy@mailinator.com | dummy1@mailinator.com
         loginPage.getPassword().type('San@3004')   // /hSe7WSP | *Ds9&Qw8
         loginPage.getLoginCTA().click()
-        homePage.getPopModelClose().click()
+    //    homePage.getPopModelClose().click()
         cy.url().should('include','/employer/dashboard')
         homePage.getHomeText().should('have.text','Home')
         navigation.getNavBarLinks().each(($el, index, $list) => {
