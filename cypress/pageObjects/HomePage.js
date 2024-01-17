@@ -7,7 +7,7 @@ class HomePage
     }
     getHomeText()
     {
-        return cy.get('p.chakra-text.css-1flyc9m')
+        return cy.get('.css-qom2ge')
     }
     getMenuDropdown()
     {

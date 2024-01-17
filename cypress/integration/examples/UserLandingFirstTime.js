@@ -22,6 +22,7 @@ describe('Test all pages when user lands first time', ()=> {
         cy.fixture('example').then(function(data){
         this.data=data
         cy.visit('/')
+        cy.percySnapshot();
         })
     })
 

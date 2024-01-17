@@ -2,7 +2,7 @@ class BenefitsPage
 {
 getBenefitsText()
 {
- return cy.get('div.css-z2qe91 > p.chakra-text.css-0')
+ return cy.get('.css-ka1lkk > :nth-child(2)')
 }
 getCorporateBenefitsText()
 {
@@ -22,7 +22,7 @@ getSubCategories()
 }
 getBenefitsLink()
 {
-    return cy.get('[href="/employer/benefits/corporate"]')
+    return cy.get('.css-ka1lkk > :nth-child(2)')
 }
 selectBenefit()
 {

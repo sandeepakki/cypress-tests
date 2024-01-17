@@ -15,27 +15,29 @@ describe('batik test suite', function () {
     cy.fixture('example').then(function (data) {
       this.data = data
       cy.visit('/')
+      cy.percySnapshot();
     })
   })
   it('Activate employee benefits', function () {
-    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Perks!')
     loginPage.getLoginWithEmailCTA().click()
     cy.Login(this.data.ValidUser, this.data.ValidPassword)
     loginPage.getLoginCTA().click()
-    cy.url().should('include', '/employer/dashboard')
-   // homePage.getPopModelClose().click()
+    cy.url().should('include', 'employer/dashboard')
+    cy.percySnapshot();
+  // homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     benefitsPage.getBenefitsLink().click()
     benefitsPage.getEmployeeBenefitsText().click()
     benefitsPage.getCategories().each(($el, index, $list) => {
       const CatText = $el.find('.chakra-text.css-xxplq9').text()
-      if (CatText.includes('Health care')) {
+      if (CatText.includes('Health & Fitness')) {
         cy.wrap($el).click()
       }
     })
     benefitsPage.getSubCategories().each(($el, index, $list) => {
       const CatText = $el.find('chakra-text.css-xxplq9').text()
-      if (CatText.includes('Healthcare Plan')) {
+      if (CatText.includes('Health & Fitness')) {
         cy.wrap($el).click()
       }
     })
@@ -64,8 +66,8 @@ describe('batik test suite', function () {
     activatedPage.getDeactivatedCTA().click()
     activatedPage.getConfirmCTA().click()
     benefitsPage.getSuccessToast().should('have.text', 'Plan Deactivated Successfully')
-    // homePage.getMenuDropdown().click()
-    // homePage.getLogoutCTA().click()
+    homePage.getMenuDropdown().click()
+    homePage.getLogoutCTA().click()
   })
 
 })

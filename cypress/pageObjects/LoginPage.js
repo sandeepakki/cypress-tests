@@ -6,7 +6,7 @@ class LoginPage
     }
     getLoginWithEmailCTA()
     {
-        return cy.get('button.chakra-button.css-15cvtmh')
+        return cy.get('.css-ea6of5')
     }
     getEmployeeCTA()
     {
@@ -22,7 +22,7 @@ class LoginPage
     }
     getLoginCTA()
     {
-       return cy.get('button.chakra-button.css-myw8ga')
+       return cy.get('.css-1n52f34 > .chakra-button')
     }
     getUserNotfoundText()
     {

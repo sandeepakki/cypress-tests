@@ -23,8 +23,8 @@ Cypress.Commands.add('LoginAPI', (email, password, poolID) => {
   cy.session([email, password, poolID], () => {
     cy.request({
       method: 'POST',
-      url: 'https://api-stg.tartanhq.com/marvel/api/v1/login',
-      body: {loginKey:"legacy@mailinator.com",password:"San@300494",poolId:"ap-south-1_xH9pAN2Zu"}
+      url: 'https://api-stg.startbatik.com/api/v1/login',
+      body: {loginKey:"legacy@mailinator.com",password:"San@3004",poolId:"ap-south-1_xH9pAN2Zu"}
     }).then(({ body })=> {
       console.log(body.accessToken)
      Cypress.env('batik-user-stg',body.accessToken)

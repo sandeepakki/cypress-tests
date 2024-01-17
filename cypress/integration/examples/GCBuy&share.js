@@ -16,6 +16,7 @@ describe('batik test suite', function () {
         cy.fixture('example').then(function (data) {
             this.data = data
             cy.visit('/')
+            cy.percySnapshot();
         })
     })
     it('Purchase Gift Card as an employer',function(){

@@ -31,14 +31,16 @@ module.exports = defineConfig({
     },
     env:{
       db: {
-        host: "localhost",
-        user: "admin",
-        password: "tartanpassword",
-        database: "test"
+        host: "127.0.0.1",
+        user: "root",
+        password: `Mk]~BSq(AU9"bepk`,
+        database: "test",
+        port:'3307'
       }},
   e2e: {
-    baseUrl: 'https://bs.tartanhq.com/',
-    apiURL: 'https://api-stg.tartanhq.com/marvel/api/v1',
+    testIsolation: false,
+    baseUrl: 'https://benefits-stage.perks.tech/',
+    apiURL: 'https://api-stg.startbatik.com/api/v1',
    
     experimentalRunAllSpecs:true,
     setupNodeEvents(on, config) {

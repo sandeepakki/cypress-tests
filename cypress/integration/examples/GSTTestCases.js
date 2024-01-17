@@ -12,6 +12,7 @@ describe('batik test suite', function () {
     cy.fixture('example').then(function (data) {
       this.data = data
       cy.visit('/')
+      cy.percySnapshot();
     })
   })
   it('amount validation without offer and tax 0', function () {

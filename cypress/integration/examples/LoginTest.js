@@ -14,17 +14,18 @@ describe('batik test suite', function () {
     cy.fixture('example').then(function (data) {
       this.data = data
       cy.visit('/')
+      cy.percySnapshot();
     })
 
   })
   //employer login & logout
   it('performs login & Logout test', function () {
-    loginPage.getWelcomeText().should('have.text', 'Welcome to Batik!')
+    loginPage.getWelcomeText().should('have.text', 'Welcome to Perks!')
     loginPage.getLoginWithEmailCTA().click()
     cy.Login(this.data.ValidUser, this.data.ValidPassword)
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employer/dashboard')
-   // homePage.getPopModelClose().click()
+    homePage.getPopModelClose().click()
     homePage.getHomeText().should('have.text', 'Home')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()
@@ -35,7 +36,7 @@ describe('batik test suite', function () {
     cy.Login(this.data.employeeAccess, this.data.employeePWD)
     loginPage.getLoginCTA().click()
     cy.url().should('include', '/employee/dashboard')
-   // homePage.getPopModelClose().click()
+    homePage.getPopModelClose().click()
     benefitsPage.getBenefitsText().should('have.text', 'Benefits')
     homePage.getMenuDropdown().click()
     homePage.getLogoutCTA().click()

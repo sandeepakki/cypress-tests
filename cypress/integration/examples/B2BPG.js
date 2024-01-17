@@ -13,6 +13,7 @@ describe('batik test suite', function () {
     cy.fixture('example').then(function(data){
       this.data=data
       cy.visit('/')
+      cy.percySnapshot();
     })
   })
   it('Buy and distribute corporate benefit with employees', function () {
@@ -41,9 +42,9 @@ describe('batik test suite', function () {
     benefitsPage.getBuyNowCTA().click()
     cy.wait(1000)
     benefitsPage.getAddEmployeesCTA().click()
-    benefitsPage.getDistributionSearch().type('sandeep')
+    benefitsPage.getDistributionSearch().type('sandeep{enter}',{force: true})
     cy.wait(1000)
-    benefitsPage.getCheckbox().click()
+    benefitsPage.getCheckbox().eq(1).click()
     benefitsPage.getClearSelectionCTA().click()
     cy.wait(500)
     benefitsPage.getCheckbox().click()

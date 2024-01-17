@@ -19,6 +19,7 @@ describe('batik test suite', function() {
         const benefitsPage = new BenefitsPage()
         cy.clearCookies()
       cy.visit('/')
+      cy.percySnapshot();
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getLoginWithEmailCTA().click()
       cy.Login(this.data.ValidUser,this.data.ValidPassword)

@@ -25,6 +25,7 @@ describe('batik test suite', function() {
       it('Resets Forgot Password', function()  { 
         cy.clearCookies()
       cy.visit('/')
+      cy.percySnapshot();
       loginPage.getWelcomeText().should('have.text','Welcome to Batik!')
       loginPage.getLoginWithEmailCTA().click()
       loginPage.getDontRememberPasswordText().then(function(element){

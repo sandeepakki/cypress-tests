@@ -25,7 +25,7 @@ class EmployeeDirectory
     {
         return cy.get("input[type='file']")
     }
-    getUploadCTA()
+    getUploadCTA() cy.get('.css-1t16i8u > :nth-child(3) > .chakra-text')
     {
         return cy.get('.chakra-modal__footer > .chakra-button')
     }
